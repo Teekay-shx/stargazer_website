@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Enquiry Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <img src="./images/Fresh.PNG" alt="STARGAZER logo" width="200" height="200">
+    <nav>
+            <a href="index.html">Home</a>
+            <a href="about us.html">About us</a>
+            <a href="products.html">Products</a>
+            <a href="enquiry.html">Enquiry</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+  <h1>What is your question</h1>
+  <form id="enquiryForm">
+    <label for="name">Your Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+    
+    <label for="message">Your Enquiry:</label><br>
+    <textarea id="message" name="message" required></textarea><br><br>
+    
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="response"></p>
+
+  <script>
+    const form = document.getElementById('enquiryForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const message = document.getElementById('message').value;
+      document.getElementById('response').innerText =
+        `Thank you, ${name}. We received your enquiry: "${message}"`;
+    });
+  </script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 200px; 
+      width: 35%;   
+    }
+  </style>
+</head>
+<body>
+  <h2>Our Location</h2>
+  <div id="map"></div>
+
+  
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+   
+    var map = L.map('map').setView([-23.9045, 29.4590], 16); 
+
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+   
+    L.marker([-23.9045, 29.4590]).addTo(map)
+      .bindPopup("📍 Dorp Street, Polokwane")
+      .openPopup();
+  </script>
+</body>
+</html>
+  <footer>
+            <p style="text-align: center">&copy; 2025 STARGAZER South Africa's very own brand</p>
+        </footer>
+</body>
+</html>
